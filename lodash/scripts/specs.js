@@ -62,7 +62,7 @@ describe("Steps analyzer", function() {
       { 'datestamp': '20140103', 'stepCount':  1005 },
       { 'datestamp': '20140104', 'stepCount':  6121 },
       { 'datestamp': '20140105', 'stepCount':  7255 },
-      { 'datestamp': '20140106', 'stepCount':  7255 },
+      { 'datestamp': '20140106', 'stepCount':  8555 },
       { 'datestamp': '20140107', 'stepCount':     0 },
       { 'datestamp': '20140108', 'stepCount': 12234 },
       { 'datestamp': '20140109', 'stepCount':  6367 },
@@ -71,6 +71,21 @@ describe("Steps analyzer", function() {
 
   it("exists", function() {
     expect(walkerApp.stepsAnalyzer).toBeDefined();
+  });
+
+  it("finds all days above a given threshhold", function() {
+  	var sa = walkerApp.stepsAnalyzer;
+  	sa.setData(sampleData);
+    var days7k = sa.getDaysAboveThreshhold(7000);
+    expect(days7k.length).toEqual(5);
+  });
+
+  it("finds all days within a range", function() {
+  	var sa = walkerApp.stepsAnalyzer;
+  	sa.setData(sampleData);
+    var days7KRange = sa.getDaysInRange(7000, 8000);
+    expect(days7KRange.length).toEqual(3);
+    
   });
 
 });
