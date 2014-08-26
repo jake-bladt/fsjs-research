@@ -5,6 +5,14 @@ describe("Lodash", function() {
 });
 
 describe("Lodash array helper", function() {
+  var stepsData = [
+    { 'datestamp': 20140101, 'stepCount': 3456 },
+    { 'datestamp': 20140102, 'stepCount': 7122 },
+    { 'datestamp': 20140103, 'stepCount': 1005 },
+    { 'datestamp': 20140104, 'stepCount': 6121 },
+    { 'datestamp': 20140105, 'stepCount': 7255 }
+  ];
+
   it("compacts away falsy values", function() {
     expect(_.compact([0, 1, 2, false, '', 3, null])).toEqual([1, 2, 3]);
   });
@@ -14,37 +22,24 @@ describe("Lodash array helper", function() {
   });
 
   it("finds the index of the first matching object in an array", function() {
-    var stepsData = [
-      { 'datestamp': '20140101', 'stepCount': 3456 },
-      { 'datestamp': '20140102', 'stepCount': 7122 },
-      { 'datestamp': '20140103', 'stepCount': 1005 },
-      { 'datestamp': '20140104', 'stepCount': 6121 },
-      { 'datestamp': '20140105', 'stepCount': 7255 }
-    ];
-
     var ndx = _.findIndex(stepsData, function(sd) {
       return sd.stepCount > 7000;
     });
-
     expect(ndx).toEqual(1);
-
   });
 
   it("finds the index of the last matching object in an array", function() {
-    var stepsData = [
-      { 'datestamp': '20140101', 'stepCount': 3456 },
-      { 'datestamp': '20140102', 'stepCount': 7122 },
-      { 'datestamp': '20140103', 'stepCount': 1005 },
-      { 'datestamp': '20140104', 'stepCount': 6121 },
-      { 'datestamp': '20140105', 'stepCount': 7255 }
-    ];
-
     var ndx = _.findLastIndex(stepsData, function(sd) {
       return sd.stepCount > 7000;
     });
-
     expect(ndx).toEqual(4);
+  });
 
+  it("filters all instances with given characteristics", function() {
+    var beforeJan4 = _.filter(stepsData, function(sd) {
+      return sd.datestamp < 20140104;
+    });
+    expect(beforeJan4.length).toEqual(3);
   });
 
 });
