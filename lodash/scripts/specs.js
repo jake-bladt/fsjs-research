@@ -52,16 +52,16 @@ describe("Walker app", function() {
 
 describe("Steps analyzer", function() {
   var sampleData = [
-      { 'datestamp': '20140101', 'stepCount':  3456 },
-      { 'datestamp': '20140102', 'stepCount':  7122 },
-      { 'datestamp': '20140103', 'stepCount':  1005 },
-      { 'datestamp': '20140104', 'stepCount':  6121 },
-      { 'datestamp': '20140105', 'stepCount':  7255 },
-      { 'datestamp': '20140106', 'stepCount':  8555 },
-      { 'datestamp': '20140107', 'stepCount':     0 },
-      { 'datestamp': '20140108', 'stepCount': 12234 },
-      { 'datestamp': '20140109', 'stepCount':  6367 },
-      { 'datestamp': '20140110', 'stepCount':  7478 }
+      { 'datestamp': 20140101, 'stepCount':  3456 },
+      { 'datestamp': 20140102, 'stepCount':  7122 },
+      { 'datestamp': 20140103, 'stepCount':  1005 },
+      { 'datestamp': 20140104, 'stepCount':  6121 },
+      { 'datestamp': 20140105, 'stepCount':  7255 },
+      { 'datestamp': 20140106, 'stepCount':  8555 },
+      { 'datestamp': 20140107, 'stepCount':     0 },
+      { 'datestamp': 20140108, 'stepCount': 12234 },
+      { 'datestamp': 20140109, 'stepCount':  6367 },
+      { 'datestamp': 20140110, 'stepCount':  7478 }
     ];
 
   it("exists", function() {
